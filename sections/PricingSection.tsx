@@ -42,31 +42,31 @@ export default function PricingSection() {
                             ))}
                         </ul>
                         {plan.name === "Rocker" ? (
-                            <a href="https://payments.cashfree.com/forms/white600" target="_blank" rel="noopener noreferrer" className="block mt-7">
+                            <a href="https://payments.cashfree.com/forms/rocker" target="_blank" rel="noopener noreferrer" className="block mt-7">
                                 <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'Rocker' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
                                     Book Now
                                 </button>
                             </a>
                         ) : plan.name === "Gold" ? (
-                            <a href="https://payments.cashfree.com/forms/gold800" target="_blank" rel="noopener noreferrer" className="block mt-7">
+                            <a href="https://payments.cashfree.com/forms/goldseat" target="_blank" rel="noopener noreferrer" className="block mt-7">
                                 <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'Gold' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
                                     Book Now
                                 </button>
                             </a>
                         ) : plan.name === "Platinum" ? (
-                            <a href="https://payments.cashfree.com/forms/naviblue1100" target="_blank" rel="noopener noreferrer" className="block mt-7">
+                            <a href="https://payments.cashfree.com/forms/platinumseat" target="_blank" rel="noopener noreferrer" className="block mt-7">
                                 <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'Platinum' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
                                     Book Now
                                 </button>
                             </a>
                         ) : plan.name === "VIP" ? (
-                            <a href="https://payments.cashfree.com/forms/darkpink2000" target="_blank" rel="noopener noreferrer" className="block mt-7">
+                            <a href="https://payments.cashfree.com/forms/vipseat" target="_blank" rel="noopener noreferrer" className="block mt-7">
                                 <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'VIP' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
                                     Book Now
                                 </button>
                             </a>
                         ) : (
-                            <a href="https://payments.cashfree.com/forms/specialvip" target="_blank" rel="noopener noreferrer" className="block mt-7">
+                            <a href="https://payments.cashfree.com/forms/specialvipseat" target="_blank" rel="noopener noreferrer" className="block mt-7">
                                 <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'Special VIP' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
                                     Book Now
                                 </button>
