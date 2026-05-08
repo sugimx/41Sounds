@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { JWT } from 'google-auth-library';
 
 // Types for Cashfree webhook payload
 interface CustomerDetails {
@@ -87,6 +89,94 @@ function formatPhoneNumber(phone: string): string {
   
   // Return as-is if already in correct format or cannot determine
   return cleaned;
+}
+
+// Utility function to log booking data to Google Sheets
+async function addToGoogleSheet(
+  customerName: string,
+  customerEmail: string,
+  customerPhone: string,
+  orderId: string,
+  orderAmount: number,
+  ticketCategory?: string,
+  numberOfTickets?: number
+): Promise<void> {
+  try {
+    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+
+    if (!spreadsheetId || !privateKey || !clientEmail) {
+      console.warn('⚠️  Google Sheets credentials not configured. Skipping sheet update.');
+      return;
+    }
+
+    // Initialize JWT auth
+    const auth = new JWT({
+      email: clientEmail,
+      key: privateKey.replace(/\\n/g, '\n'),
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    // Create spreadsheet instance
+    const doc = new GoogleSpreadsheet(spreadsheetId, auth);
+    await doc.loadInfo();
+
+    // Get first sheet (or specify sheet name if needed)
+    const sheet = doc.sheetsByIndex[0];
+
+    // Load all rows to calculate next S.No
+    await sheet.loadCells('A:A'); // Load column A to get existing S.No values
+    const rows = await sheet.getRows();
+    
+    // Calculate next S.No (start from 1 if empty, otherwise get max and add 1)
+    let nextSerialNo = 1;
+    if (rows && rows.length > 0) {
+      const sNoValues = rows
+        .map((row: any) => {
+          const sNo = row.get('S.No');
+          return parseInt(sNo, 10);
+        })
+        .filter((val: number) => !isNaN(val));
+      
+      if (sNoValues.length > 0) {
+        nextSerialNo = Math.max(...sNoValues) + 1;
+      }
+    }
+
+    // Format data to match your Google Sheet columns
+    const timestamp = new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+    });
+    
+    const phoneNumber = customerPhone?.replace(/\D/g, '') || '';
+    const ticketQty = numberOfTickets || 0;
+    const amount = parseFloat(orderAmount.toFixed(2));
+
+    // Add row to Google Sheet with auto-incremented S.No
+    await sheet.addRow({
+      'S.No': nextSerialNo.toString(),
+      'Name': customerName?.trim() || '',
+      'Phone Number': phoneNumber,
+      'To': customerEmail?.toLowerCase().trim() || '',
+      'Tickets': ticketQty,
+      'Seat Category': ticketCategory || 'Standard',
+      'Price': amount,
+      'Transaction Date': timestamp,
+      'BookingID': orderId?.toUpperCase().trim() || '',
+      'Seat Number': '', // Not available from webhook - add manually if needed
+    });
+
+    console.log('✅ Data added to Google Sheet successfully:', {
+      serialNo: nextSerialNo,
+      orderId: orderId,
+      customerName: customerName,
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error('❌ Google Sheets error:', error);
+    // Don't throw - webhook should continue even if sheet update fails
+  }
 }
 
 // Utility function to send email
@@ -469,6 +559,15 @@ export async function POST(request: NextRequest) {
       console.log(`✅ Email sent successfully for order: ${order_id}`);
     } catch (emailError) {
       console.error('❌ Email service error:', emailError);
+      // Log the error but still return 200 to Cashfree
+    }
+
+    // Add data to Google Sheet
+    try {
+      await addToGoogleSheet(customer_name, customer_email, customer_phone, order_id, order_amount, ticketCategory, numberOfTickets);
+      console.log(`✅ Google Sheet updated successfully for order: ${order_id}`);
+    } catch (sheetError) {
+      console.error('❌ Google Sheets error:', sheetError);
       // Log the error but still return 200 to Cashfree
     }
 
