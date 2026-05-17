@@ -122,7 +122,7 @@ async function addToGoogleSheet(
     const doc = new GoogleSpreadsheet(spreadsheetId, auth);
     await doc.loadInfo();
 
-    // Get first sheet (or specify sheet name if needed)
+    // Get first sheet (for main booking data)
     const sheet = doc.sheetsByIndex[0];
 
     // Load all rows to calculate next S.No
@@ -175,6 +175,92 @@ async function addToGoogleSheet(
     });
   } catch (error) {
     console.error('❌ Google Sheets error:', error);
+    // Don't throw - webhook should continue even if sheet update fails
+  }
+}
+
+// Utility function to add detailed webhook data to Sheet 2
+async function addDetailedDataToSheet2(
+  payload: CashfreeWebhookPayload,
+  orderId: string,
+  customerName: string,
+  customerEmail: string,
+  customerPhone: string,
+  ticketCategory?: string
+): Promise<void> {
+  try {
+    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+
+    if (!spreadsheetId || !privateKey || !clientEmail) {
+      console.warn('⚠️  Google Sheets credentials not configured. Skipping Sheet 2 update.');
+      return;
+    }
+
+    // Initialize JWT auth
+    const auth = new JWT({
+      email: clientEmail,
+      key: privateKey.replace(/\\n/g, '\n'),
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    // Create spreadsheet instance
+    const doc = new GoogleSpreadsheet(spreadsheetId, auth);
+    await doc.loadInfo();
+
+    // Get second sheet (for detailed webhook data)
+    const sheet = doc.sheetsByIndex[1];
+
+    // Load all rows to calculate next S.No
+    const rows = await sheet.getRows();
+    let nextSerialNo = 1;
+    if (rows && rows.length > 0) {
+      const sNoValues = rows
+        .map((row: any) => {
+          const sNo = row.get('S.No');
+          return parseInt(sNo, 10);
+        })
+        .filter((val: number) => !isNaN(val));
+      
+      if (sNoValues.length > 0) {
+        nextSerialNo = Math.max(...sNoValues) + 1;
+      }
+    }
+
+    // Format timestamp
+    const timestamp = new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+    });
+
+    const order = payload.data.order;
+    const phoneNumber = customerPhone?.replace(/\D/g, '') || '';
+    const amount = order.order_amount;
+    const formUrl = payload.data.form?.form_url || '';
+
+    // Add detailed row to Sheet 2
+    await sheet.addRow({
+      'S.No': nextSerialNo.toString(),
+      'Order ID': orderId?.toUpperCase().trim() || '',
+      'Customer Name': customerName?.trim() || '',
+      'Phone': phoneNumber,
+      'Email': customerEmail?.toLowerCase().trim() || '',
+      'Amount': amount,
+      'Ticket Category': ticketCategory || 'N/A',
+      'Order Status': order.order_status || '',
+      'Transaction ID': order.transaction_id || '',
+      'Form URL': formUrl,
+      'Payment Time': timestamp,
+      'Full Payload': JSON.stringify(payload),
+    });
+
+    console.log('✅ Detailed data added to Sheet 2 successfully:', {
+      serialNo: nextSerialNo,
+      orderId: orderId,
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error('❌ Sheet 2 error:', error);
     // Don't throw - webhook should continue even if sheet update fails
   }
 }
@@ -568,6 +654,15 @@ export async function POST(request: NextRequest) {
       console.log(`✅ Google Sheet updated successfully for order: ${order_id}`);
     } catch (sheetError) {
       console.error('❌ Google Sheets error:', sheetError);
+      // Log the error but still return 200 to Cashfree
+    }
+
+    // Add detailed data to Sheet 2
+    try {
+      await addDetailedDataToSheet2(payload, order_id, customer_name, customer_email, customer_phone, ticketCategory);
+      console.log(`✅ Sheet 2 updated with detailed data for order: ${order_id}`);
+    } catch (sheet2Error) {
+      console.error('❌ Sheet 2 error:', sheet2Error);
       // Log the error but still return 200 to Cashfree
     }
 
