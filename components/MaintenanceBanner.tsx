@@ -57,7 +57,7 @@ export default function MaintenanceBanner() {
                     color: '#666666',
                     lineHeight: '1.6',
                 }}>
-                    The concert <strong>date</strong>, <strong>venue</strong>, and <strong>pricing</strong> may be subject to changes. The website will be updated with the final details shortly. Thank you for your patience!
+                    The concert <strong>date</strong>, <strong>venue</strong>, and <strong>pricing</strong> may be subject to changes. <strong style={{ color: '#FF6B6B' }}>Please don't book tickets for now</strong>. The website will be updated with the final details shortly. Thank you for your patience!
                 </p>
 
                 <button
