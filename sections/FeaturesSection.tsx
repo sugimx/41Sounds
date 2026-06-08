@@ -115,7 +115,7 @@ export default function FeaturesSection() {
                         viewport={{ once: true }}
                         transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
                     >
-                        <Image src="/assets/vicky-pic.jpg" alt="41Sounds event" width={1000} height={500} className="rounded-2xl hover:-translate-y-0.5 transition duration-300" />
+                        <Image src="/assets/chinmayi_bw.jpg" alt="41Sounds event" width={1000} height={500} className="rounded-2xl hover:-translate-y-0.5 transition duration-300" />
                     </motion.div>
                     
                     <motion.div

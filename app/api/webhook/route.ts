@@ -30,7 +30,6 @@ interface CashfreeWebhookPayload {
 
 // Allowed forms - only send messages for these forms
 const ALLOWED_FORMS = [
-  'https://payments.cashfree.com/forms/rocker',
   'https://payments.cashfree.com/forms/platinumseat',
   'https://payments.cashfree.com/forms/vipseat',
   'https://payments.cashfree.com/forms/goldseat',
@@ -41,7 +40,6 @@ const ALLOWED_FORMS = [
 const TICKET_CATEGORIES = {
   'https://payments.cashfree.com/forms/vipseat': { category: 'VIP', price: 2052.5 },
   'https://payments.cashfree.com/forms/platinumseat': { category: 'Platinum', price: 1252.5 },
-  'https://payments.cashfree.com/forms/rocker': { category: 'Rocker', price: 552.5 },
   'https://payments.cashfree.com/forms/goldseat': { category: 'Gold', price: 852.5 },
   'https://payments.cashfree.com/forms/specialvipseat': { category: 'Special VIP', price: 5052.5 },
 };
@@ -300,7 +298,7 @@ async function sendEmail(
           
           <p>Please be informed that your payment has been successfully received and confirmed.</p>
 
-          <p>Thank you for booking your ${ticketCategory} tickets for our upcoming Muthamazhai 2.0 event on 06 June 2026 at Karthipuram, Neelambur, Coimbatore at 6:30 PM.</p>
+          <p>Thank you for booking your ${ticketCategory} tickets for our upcoming Muthamazhai 2.0 event on 18 July 2026 at Hindustan Concert Ground, Coimbatore at 6:30 PM.</p>
           
           <div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; margin: 20px 0;">
             <p><strong>Order ID:</strong> ${orderId}</p>
@@ -332,7 +330,7 @@ async function sendEmail(
     
     Please be informed that your payment has been successfully received and confirmed.
 
-    Thank you for booking your ${ticketCategory} tickets for our upcoming Muthamazhai 2.0 event on 06 June 2026 at Karthipuram, Neelambur, Coimbatore at 6:30 PM.
+    Thank you for booking your ${ticketCategory} tickets for our upcoming Muthamazhai 2.0 event on 18 July 2026 at Hindustan Concert Ground, Coimbatore at 6:30 PM.
     
     Order ID: ${orderId}
     ${ticketTextInfo}
