@@ -42,7 +42,7 @@ export const pricingData: IPricing[] = [
         color: "dark-pink"
     },
     {
-        name: "Special VIP",
+        name: "MVIP",
         price: 5000,
         period: "ticket",
         features: [

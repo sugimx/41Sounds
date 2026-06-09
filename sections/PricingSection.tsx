@@ -61,7 +61,7 @@ export default function PricingSection() {
                             </a>
                         ) : (
                             <a href="https://payments.cashfree.com/forms/specialvipseat" target="_blank" rel="noopener noreferrer" className="block mt-7">
-                                <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'Special VIP' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
+                                <button type="button" className={`w-full py-2.5 rounded-md font-medium transition-all ${plan.name === 'MVIP' ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-white text-pink-600 hover:bg-slate-200'}`}>
                                     Book Now
                                 </button>
                             </a>

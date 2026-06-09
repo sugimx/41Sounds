@@ -41,7 +41,7 @@ const TICKET_CATEGORIES = {
   'https://payments.cashfree.com/forms/vipseat': { category: 'VIP', price: 2052.5 },
   'https://payments.cashfree.com/forms/platinumseat': { category: 'Platinum', price: 1252.5 },
   'https://payments.cashfree.com/forms/goldseat': { category: 'Gold', price: 852.5 },
-  'https://payments.cashfree.com/forms/specialvipseat': { category: 'Special VIP', price: 5052.5 },
+  'https://payments.cashfree.com/forms/specialvipseat': { category: 'MVIP', price: 5052.5 },
 };
 
 interface WhatsAppTemplateParam {
