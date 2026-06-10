@@ -95,7 +95,7 @@ async function addToGoogleSheet(
   customerEmail: string,
   customerPhone: string,
   orderId: string,
-  orderAmount: number,
+  orderAmount: number | string,
   ticketCategory?: string,
   numberOfTickets?: number
 ): Promise<void> {
@@ -108,6 +108,16 @@ async function addToGoogleSheet(
       console.warn('⚠️  Google Sheets credentials not configured. Skipping sheet update.');
       return;
     }
+
+    console.log('Data to be added to Google Sheet:', {
+        customerName,
+        customerEmail,
+        customerPhone,
+        orderId,
+        orderAmount,
+        ticketCategory,
+        numberOfTickets,
+      });
 
     // Initialize JWT auth
     const auth = new JWT({
@@ -149,7 +159,13 @@ async function addToGoogleSheet(
     
     const phoneNumber = customerPhone?.replace(/\D/g, '') || '';
     const ticketQty = numberOfTickets || 0;
-    const amount = parseFloat(orderAmount.toFixed(2));
+    const numericOrderAmount =
+      typeof orderAmount === 'string'
+        ? parseFloat(orderAmount.replace(/,/g, ''))
+        : orderAmount;
+    const amount = Number.isFinite(numericOrderAmount)
+      ? parseFloat(numericOrderAmount.toFixed(2))
+      : 0;
 
     // Add row to Google Sheet with auto-incremented S.No
     await sheet.addRow({
