@@ -67,15 +67,15 @@ export default function FeaturesSection() {
                 </div>
 
                 {/* Inserted image between features and 3D banner */}
-                {/* <div className="flex justify-center mt-16">
+                <div className="flex justify-center mt-16">
                     <Image
-                        src="/assets/Banner3.jpeg"
+                        src="/assets/layout_banner.jpeg"
                         alt="Event highlight"
                         width={800}
                         height={400}
                         className="rounded-xl shadow-lg border border-slate-800"
                     />
-                </div> */}
+                </div>
 
                 <motion.div
                     className="mt-16 p-8 rounded-2xl border border-pink-800/50 bg-linear-to-br from-pink-950/50 to-slate-950"

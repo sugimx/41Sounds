@@ -14,9 +14,9 @@ export default function TestimonialSection() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
-                <div className="aspect-square relative bg-white p-4 rounded-xl">
+                <div className="aspect-square relative bg-white rounded-xl">
                     <img 
-                        src="/assets/seating.jpeg" 
+                        src="/assets/concert_layout.jpeg" 
                         alt="Seating Arrangement" 
                         className="w-full h-full object-contain"
                     />
