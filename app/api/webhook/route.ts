@@ -322,7 +322,7 @@ async function sendEmail(
             <p><strong>Booking Date:</strong> ${new Date().toLocaleDateString('en-IN')}</p>
           </div>
           
-          <p>Your booking is being processed, and you will receive your ticket details via email/whatsapp anytime before the event.</p>
+          <p>Your booking is being processed, and you will receive your ticket details via email and whatsapp within the last 24 hours before the event starts.</p>
           
           <p>We look forward to hosting you for an unforgettable evening of music and entertainment.</p>
           
@@ -352,7 +352,7 @@ async function sendEmail(
     ${ticketTextInfo}
     Booking Date: ${new Date().toLocaleDateString('en-IN')}
     
-    Your booking is being processed, and you will receive your ticket details via email/whatsapp anytime before the event.
+    Your booking is being processed, and you will receive your ticket details via email and whatsapp within the last 24 hours before the event starts.
     
     We look forward to hosting you for an unforgettable evening of music and entertainment.
     
