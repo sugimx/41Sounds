@@ -13,15 +13,15 @@ const RefundsPage = () => (
     <div className="space-y-8">
       <section>
         <h2 className="text-xl font-semibold text-gray-800 mb-2">1. Refund Policy</h2>
-        <p className="text-gray-700">All ticket sales are final. Refunds will only be issued in the event of event cancellation or as required by law.</p>
+        <p className="text-gray-700">All ticket sales are final. Refunds will only be issued in the event of event cancellation, event rescheduling, or as required by law.</p>
       </section>
       <section>
         <h2 className="text-xl font-semibold text-gray-800 mb-2">2. Cancellation Policy</h2>
         <p className="text-gray-700">Tickets cannot be cancelled once purchased. Please review your order carefully before confirming your purchase.</p>
       </section>
       <section>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">3. Event Changes</h2>
-        <p className="text-gray-700">If the event is rescheduled, your ticket will be valid for the new date. If you cannot attend the rescheduled event, please contact us for assistance.</p>
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">3. Event Changes & Rescheduling</h2>
+        <p className="text-gray-700">If the event is rescheduled, your ticket will automatically be valid for the new date. If you cannot attend the rescheduled event, you are eligible for a full refund. Please contact us to request your refund.</p>
       </section>
       <section>
         <h2 className="text-xl font-semibold text-gray-800 mb-2">4. Contact Us</h2>
