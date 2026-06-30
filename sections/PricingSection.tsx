@@ -107,7 +107,7 @@ export default function PricingSection() {
                                     <ShieldAlert className="size-6 text-pink-500" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold bg-linear-to-r from-white to-pink-300 bg-clip-text text-transparent">Refund Policy Agreement</h3>
+                                    <h3 className="text-lg font-bold bg-linear-to-r from-white to-pink-300 bg-clip-text text-transparent">Terms and Conditions Agreement</h3>
                                     <p className="text-xs text-gray-400">Please accept terms to complete your purchase</p>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ export default function PricingSection() {
                                     />
                                 </div>
                                 <label htmlFor="modal-consent" className="text-xs text-gray-300 select-none cursor-pointer leading-tight">
-                                    I agree to the <span className="font-semibold text-white">Refund & Cancellation Policy</span> and acknowledge that all ticket sales are final.
+                                    I agree to the <span className="font-semibold text-white">Terms and Conditions</span> and acknowledge that all ticket sales are final.
                                 </label>
                             </div>
 
@@ -199,4 +199,4 @@ export default function PricingSection() {
             </AnimatePresence>
         </div>
     );
-}
+}
