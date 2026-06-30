@@ -120,7 +120,7 @@ export default function PricingSection() {
                                         <h4 className="text-base font-bold text-white mt-0.5">{selectedPlan.name} Tier</h4>
                                     </div>
                                     <div className="text-right">
-                                        <span className="text-xs text-gray-400">Total Price</span>
+                                        <span className="text-xs text-gray-400">Price</span>
                                         <h4 className="text-base font-black text-pink-400 mt-0.5">₹{selectedPlan.price}</h4>
                                     </div>
                                 </div>
