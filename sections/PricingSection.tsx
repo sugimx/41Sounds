@@ -107,7 +107,7 @@ export default function PricingSection() {
                                     <ShieldAlert className="size-6 text-pink-500" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold bg-linear-to-r from-white to-pink-300 bg-clip-text text-transparent">Terms and Conditions Agreement</h3>
+                                    <h3 className="text-lg font-bold bg-linear-to-r from-white to-pink-300 bg-clip-text text-transparent">Terms and Conditions</h3>
                                     <p className="text-xs text-gray-400">Please accept terms to complete your purchase</p>
                                 </div>
                             </div>
