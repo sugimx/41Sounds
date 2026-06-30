@@ -127,7 +127,7 @@ export default function PricingSection() {
                             </div>
 
                             {/* Refund Policy Body */}
-                            <div className="mb-6 max-h-40 overflow-y-auto rounded-xl bg-slate-900/50 border border-slate-800 p-4 text-xs text-gray-300 space-y-3">
+                            {/* <div className="mb-6 max-h-40 overflow-y-auto rounded-xl bg-slate-900/50 border border-slate-800 p-4 text-xs text-gray-300 space-y-3">
                                 <p className="font-semibold text-white">Refunds & Cancellations Terms:</p>
                                 <ol className="list-decimal pl-4 space-y-2">
                                     <li>
@@ -143,7 +143,7 @@ export default function PricingSection() {
                                 <p className="text-[10px] text-gray-400 mt-2">
                                     Read the full <a href="/refunds" target="_blank" className="text-pink-400 hover:text-pink-300 underline font-semibold transition-colors">Refund & Cancellation Policy</a>.
                                 </p>
-                            </div>
+                            </div> */}
 
                             {/* Consent Checkbox */}
                             <div className="mb-6 flex items-start gap-3">
