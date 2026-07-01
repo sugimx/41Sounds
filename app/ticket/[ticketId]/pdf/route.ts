@@ -19,9 +19,9 @@ async function getTicket(ticketId: string) {
 
 export async function GET(
     request: Request,
-    context: { params: { ticketId: string } }
+    context: { params: Promise<{ ticketId: string }> }
 ) {
-    const { ticketId } = context.params;
+    const { ticketId } = await context.params;
 
     const ticket = await getTicket(ticketId);
 
