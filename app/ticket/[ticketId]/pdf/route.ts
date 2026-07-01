@@ -18,10 +18,10 @@ async function getTicket(ticketId: string) {
 }
 
 export async function GET(
-    request: NextRequest,
-    { params }: { params: { ticketId: string } }
+    request: Request,
+    context: { params: { ticketId: string } }
 ) {
-    const { ticketId } = await params;
+    const { ticketId } = context.params;
 
     const ticket = await getTicket(ticketId);
 
