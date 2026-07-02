@@ -61,12 +61,12 @@ export async function GET(
     });
 
     const title = "Muthamazhai 2.0";
-    const titleWidth = bold.widthOfTextAtSize(title, 18);
+    const titleWidth = bold.widthOfTextAtSize(title, 20);
 
     page.drawText(title, {
         x: (595 - titleWidth) / 2,
         y: 710,
-        size: 18,
+        size: 20,
         font: bold,
     });
 
@@ -74,56 +74,56 @@ export async function GET(
         x: 100,
         y: 660,
         size: 14,
-        font,
+        font: bold,
     });
 
     page.drawText(`Ticket No: ${String(ticket.data.ticketNumber || "")}`, {
         x: 100,
-        y: 635,
+        y: 630,
         size: 14,
-        font,
+        font: bold,
     });
 
     page.drawText(`Category: ${String(ticket.data.ticketType || "")}`, {
         x: 100,
-        y: 610,
+        y: 600,
         size: 14,
-        font,
+        font: bold,
     });
 
     page.drawText(`Quantity: ${String(ticket.data.quantity || 0)}`, {
         x: 100,
-        y: 585,
+        y: 570,
         size: 14,
-        font,
+        font: bold,
     });
 
-    page.drawText(`Price:  ${String(ticket.data.price || 0)} INR`, {
-        x: 100,
-        y: 560,
-        size: 14,
-        font,
-    });
+    // page.drawText(`Price:  ${String(ticket.data.price || 0)} INR`, {
+    //     x: 100,
+    //     y: 560,
+    //     size: 14,
+    //     font: bold,
+    // });
 
     page.drawText(`Seat: ${String(ticket.data.seatNumber || "N/A")}`, {
         x: 100,
-        y: 535,
+        y: 540,
         size: 14,
-        font,
+        font: bold,
     });
 
     page.drawText(`Venue: Hindustan Concert Ground`, {
         x: 100,
-        y: 490,
+        y: 510,
         size: 14,
-        font,
+        font: bold,
     });
 
     page.drawText(`Date & Time: 18 July 2026, 6.30 PM`, {
         x: 100,
-        y: 465,
+        y: 480,
         size: 14,
-        font,
+        font: bold,
     });
 
 
