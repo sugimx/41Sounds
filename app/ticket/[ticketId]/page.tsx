@@ -69,15 +69,15 @@ export default async function TicketPage({ params }: TicketPageProps) {
               <p className="mt-1 text-lg font-semibold">{ticket.data.fullName}</p>
             </div>
             <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Order Details</p>
-              <p className="mt-1 text-lg font-semibold">{ticket.data.ticketType} × {ticket.data.quantity}</p>
+              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Ticket Tier</p>
+              <p className="mt-1 text-lg font-semibold">{ticket.data.ticketType}</p>
             </div>
             <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Amount Paid</p>
-              <p className="mt-1 text-lg font-semibold">{ticket.data.price}</p>
+              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Ticket Quantity</p>
+              <p className="mt-1 text-lg font-semibold">{ticket.data.quantity}</p>
             </div>
             <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Attendee Seat</p>
+              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Seat Allotted</p>
               <p className="mt-1 text-lg font-semibold">{ticket.data.seatNumber}</p>
             </div>
           </div>
