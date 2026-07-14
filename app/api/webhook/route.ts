@@ -34,6 +34,7 @@ const ALLOWED_FORMS = [
   'https://payments.cashfree.com/forms/vipseat',
   'https://payments.cashfree.com/forms/goldseat',
   'https://payments.cashfree.com/forms/specialvipseat',
+  'https://payments.cashfree.com/forms/standing',
 ];
 
 // Ticket category mapping
@@ -42,6 +43,7 @@ const TICKET_CATEGORIES = {
   'https://payments.cashfree.com/forms/platinumseat': { category: 'Platinum', price: 1252.5 },
   'https://payments.cashfree.com/forms/goldseat': { category: 'Gold', price: 852.5 },
   'https://payments.cashfree.com/forms/specialvipseat': { category: 'MVIP', price: 5052.5 },
+  'https://payments.cashfree.com/forms/standing': { category: 'Standing', price: 352.5 },
 };
 
 interface WhatsAppTemplateParam {

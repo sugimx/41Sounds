@@ -31,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 
 - Hero - Event introduction and date
 - Features - Concert highlights
-- Tickets - Pricing tiers (General, VIP, Platinum)
+- Tickets - Pricing tiers (Standing, Gold, Platinum, VIP, MVIP)
 - Seat - Seating arrangement
 - Contact - Phone, Email, Instagram
 

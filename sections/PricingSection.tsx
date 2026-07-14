@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 
 const checkoutUrls = {
     'Gold': 'https://payments.cashfree.com/forms/goldseat',
+    'Standing': 'https://payments.cashfree.com/forms/standing',
     'Platinum': 'https://payments.cashfree.com/forms/platinumseat',
     'VIP': 'https://payments.cashfree.com/forms/vipseat',
     'MVIP': 'https://payments.cashfree.com/forms/specialvipseat',
