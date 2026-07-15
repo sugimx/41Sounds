@@ -9,7 +9,7 @@ import MaintenanceBanner from "@/components/MaintenanceBanner";
 export default function Page() {
     return (
         <div style={{ width: '100%' }}>
-            {/* <MaintenanceBanner /> */}
+            <MaintenanceBanner />
             <HeroSection />
             <PricingSection />
             <FeaturesSection />
