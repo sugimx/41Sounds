@@ -75,7 +75,7 @@ export default function MaintenanceBanner() {
                     All ticket holders will receive a full refund. The refund
                     amount will be processed within{' '}
                     <strong style={{ color: '#DC2626' }}>
-                        10 working days
+                        15 working days
                     </strong>{' '}
                     to the original payment method.
 
