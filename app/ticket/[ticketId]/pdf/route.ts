@@ -60,7 +60,7 @@ export async function GET(
         color: rgb(0.85, 0.15, 0.45),
     });
 
-    const title = "Muthamazhai 2.0";
+    const title = "Stunts & Street";
     const titleWidth = bold.widthOfTextAtSize(title, 20);
 
     page.drawText(title, {
@@ -77,26 +77,26 @@ export async function GET(
         font: bold,
     });
 
-    page.drawText(`Ticket No: ${String(ticket.data.ticketNumber || "")}`, {
-        x: 100,
-        y: 630,
-        size: 14,
-        font: bold,
-    });
+    // page.drawText(`Ticket No: ${String(ticket.data.ticketNumber || "")}`, {
+    //     x: 100,
+    //     y: 630,
+    //     size: 14,
+    //     font: bold,
+    // });
 
-    page.drawText(`Category: ${String(ticket.data.ticketType || "")}`, {
+    page.drawText(`Ticket No: ${String(ticket.data.ticketNumber || "")}`, {
         x: 100,
         y: 600,
         size: 14,
         font: bold,
     });
 
-    page.drawText(`Quantity: ${String(ticket.data.quantity || 0)}`, {
-        x: 100,
-        y: 570,
-        size: 14,
-        font: bold,
-    });
+    // page.drawText(`Quantity: ${String(ticket.data.quantity || 0)}`, {
+    //     x: 100,
+    //     y: 570,
+    //     size: 14,
+    //     font: bold,
+    // });
 
     // page.drawText(`Price:  ${String(ticket.data.price || 0)} INR`, {
     //     x: 100,
@@ -105,21 +105,21 @@ export async function GET(
     //     font: bold,
     // });
 
-    page.drawText(`Seat: ${String(ticket.data.seatNumber || "N/A")}`, {
+    page.drawText(`Venue: Hindustan Concert Ground`, {
         x: 100,
         y: 540,
         size: 14,
         font: bold,
     });
 
-    page.drawText(`Venue: Hindustan Concert Ground`, {
-        x: 100,
-        y: 510,
-        size: 14,
-        font: bold,
-    });
+    // page.drawText(`Venue: Hindustan Concert Ground`, {
+    //     x: 100,
+    //     y: 510,
+    //     size: 14,
+    //     font: bold,
+    // });
 
-    page.drawText(`Date & Time: 18 July 2026, 6.30 PM`, {
+    page.drawText(`Date : 18 July 2026`, {
         x: 100,
         y: 480,
         size: 14,

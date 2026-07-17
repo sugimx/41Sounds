@@ -5,7 +5,7 @@ interface TicketPageProps {
 }
 
 const EVENT_DETAILS = {
-  title: 'Muthamazhai 2.0',
+  title: 'Stunts & Street',
   date: '18 July 2026',
   venue: 'Hindustan Concert Ground, Coimbatore',
   time: '6:30 PM',
@@ -61,10 +61,10 @@ export default async function TicketPage({ params }: TicketPageProps) {
               <p className="mt-1 text-lg font-semibold">{EVENT_DETAILS.venue}</p>
             </div>
             <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Date & Time</p>
-              <p className="mt-1 text-lg font-semibold">{EVENT_DETAILS.date} · {EVENT_DETAILS.time}</p>
+              <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Date</p>
+              <p className="mt-1 text-lg font-semibold">{EVENT_DETAILS.date}</p>
             </div>
-            <div>
+            {/* <div>
               <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Event Attendee</p>
               <p className="mt-1 text-lg font-semibold">{ticket.data.fullName}</p>
             </div>
@@ -79,7 +79,7 @@ export default async function TicketPage({ params }: TicketPageProps) {
             <div>
               <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Seat Allotted</p>
               <p className="mt-1 text-lg font-semibold">{ticket.data.seatNumber}</p>
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-8 rounded-2xl border border-dashed border-pink-400/50 bg-pink-500/10 p-4">
